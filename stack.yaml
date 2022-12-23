@@ -1,4 +1,7 @@
-resolver: lts-15.15
+resolver: lts-20.4
+allow-newer: true
+system-ghc: true
+
 packages:
   - '.'
 flags:
