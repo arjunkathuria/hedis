@@ -63,34 +63,34 @@ library
   if impl(ghc >= 8.6.0)
     ghc-options:    -Wno-warnings-deprecations
   if flag(dev)
-    ghc-options:    -Werror
+    ghc-options:    -Werror -Wno-incomplete-uni-patterns
   if flag(dev)
     ghc-prof-options: -auto-all
   exposed-modules:  Database.Redis
-  build-depends:    scanner >= 0.2,
-                    async >= 2.1,
-                    array >= 0.5.3,
+  build-depends:    scanner,
+                    async,
+                    array,
                     base >= 4.8 && < 5,
-                    bytestring >= 0.9,
-                    bytestring-lexing >= 0.5,
+                    bytestring,
+                    bytestring-lexing,
                     unordered-containers,
                     containers,
                     text,
                     deepseq,
-                    mtl >= 2,
-                    network >= 2 && < 3.2,
-                    resource-pool >= 0.2,
+                    mtl,
+                    network,
+                    resource-pool,
                     stm,
                     time,
-                    tls >= 1.3,
-                    vector >= 0.9,
+                    tls,
+                    vector,
                     HTTP,
                     errors,
                     network-uri,
                     say 
   if !impl(ghc >= 8.0)
     build-depends:
-      semigroups >= 0.11 && < 0.19
+      semigroups
 
   other-modules:    Database.Redis.Core,
                     Database.Redis.Connection,
@@ -128,13 +128,13 @@ test-suite hedis-test
     other-modules: PubSubTest
     build-depends:
         base == 4.*,
-        bytestring >= 0.10,
+        bytestring,
         hedis,
         HUnit,
         async,
         stm,
         text,
-        mtl == 2.*,
+        mtl,
         test-framework,
         test-framework-hunit,
         time
